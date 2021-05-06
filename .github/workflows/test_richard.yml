@@ -26,14 +26,14 @@ jobs:
     steps:
       - name: Setup repo
         uses: actions/checkout@v2
-
-      - name: Setup Deno
-        uses: denolib/setup-deno@c7d7968ad4a59c159a777f79adddad6872ee8d96
+        
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
         with:
-          deno-version: ${{ matrix.deno }} # tests across multiple Deno versions
-
-      - name: Cache Dependencies
-        run: deno cache deps.ts
-
-      - name: Run Tests
-        run: deno test -A --unstable
+           node-version: 14.16.1
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '11.x'
+    	# Runs a single command using the runners shell
+      - name: Install node.js packages
+        run: npm install
