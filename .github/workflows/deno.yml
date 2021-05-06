@@ -33,6 +33,6 @@ jobs:
            java-version: '11.0.11'
      - name: Install node.js packages
        run: npm install
+       
      - name: test_1
        run: npm run ci:frontend:test
-
