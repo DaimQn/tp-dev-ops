@@ -40,4 +40,21 @@ jobs:
      - name: test_back
        run: chmod +x mvnw && npm run ci:backend:test
        
+     - name: test_crea_serv
+       run: ./mvnw -ntp verify -DskipTests --batch-mode "-Pprod" "-Pe2e" "-Denforcer.skip=true
+       
+     - name: test_E2E_prepare
+       run: npm run ci:e2e:prepare:docker
+       
+     - name: test_E2E_run
+       run: npm run ci:e2e:run
+       
+     - name: test_E2E_end
+       run: npm run ci:e2e:teardown
+       
+       
+       
+       
+       
+       
    
