@@ -42,7 +42,7 @@ exports.config = {
     browser.driver.manage().window().setSize(1280, 1024);
     // Disable animations
     // @ts-ignore
-    browser.executeScript('document.body.className += " headless";'); //notransition
+    browser.executeScript('document.body.className += " notransition";'); //notransition
     const chai = require('chai');
     const chaiAsPromised = require('chai-as-promised');
     chai.use(chaiAsPromised);
