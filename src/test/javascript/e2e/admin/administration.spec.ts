@@ -23,7 +23,7 @@ describe('administration', () => {
   });
 
   it('should load user management', async () => {
-    await navBarPage.clickOnAdmin('user/management');
+    await navBarPage.clickOnAdmin('admin/user/management');
     const expect1 = 'userManagement.home.title';
     const value1 = await element(by.id('user-management-page-heading')).getAttribute('jhiTranslate');
     expect(value1).to.eq(expect1);
