@@ -373,9 +373,11 @@ class LabelResourceIT {
         restLabelMockMvc
             .perform(delete(ENTITY_API_URL_ID, label.getId()).accept(MediaType.APPLICATION_JSON))
             .andExpect(status().isNoContent());
+        
+        int databaseSizeAfterDelete = labelRepository.findAll().size();
 
         // Validate the database contains one less item
         List<Label> labelList = labelRepository.findAll();
-        assertThat(labelList).hasSize(databaseSizeBeforeDelete);
+        assertThat(labelList).hasSize(databaseSizeAfterDelete);
     }
 }
