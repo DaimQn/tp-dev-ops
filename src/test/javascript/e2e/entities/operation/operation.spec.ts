@@ -45,7 +45,7 @@ describe('Operation e2e test', () => {
     await promise.all([
       operationUpdatePage.setDateInput('01/01/2001' + protractor.Key.TAB + '02:30AM'),
       operationUpdatePage.setDescriptionInput('description'),
-      operationUpdatePage.setAmountInput('5'),
+      operationUpdatePage.setAmountInput('8'),
       operationUpdatePage.bankAccountSelectLastOption(),
       // operationUpdatePage.labelSelectLastOption(),
     ]);
