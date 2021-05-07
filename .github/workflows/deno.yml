@@ -34,6 +34,9 @@ jobs:
      - name: Install node.js packages
        run: npm install
        
+     - name: JHI_E2E_HEADLESS=true
+       run: export JHI_E2E_HEADLESS=true
+       
      - name: test_front
        run: npm run ci:frontend:test
        
