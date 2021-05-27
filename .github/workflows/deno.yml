@@ -19,12 +19,14 @@ jobs:
     runs-on: ${{ matrix.os }} # runs a test on Ubuntu, Windows and macOS
     env:
       JHI_E2E_HEADLESS: true
+      HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
+      
 
     strategy:
       matrix:
         deno: ["v1.x", "nightly"]
         os: [ubuntu-latest]
-    
+   
     steps:
      - uses: actions/checkout@v2
      - uses: actions/setup-node@v1
