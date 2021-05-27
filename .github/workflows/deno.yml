@@ -36,23 +36,26 @@ jobs:
      - name: Install node.js packages
        run: npm install
        
-     - name: test_front
-       run: npm run ci:frontend:test
+     #- name: test_front
+     #  run: npm run ci:frontend:test
        
-     - name: test_back
-       run: chmod +x mvnw && npm run ci:backend:test
+     #- name: test_back
+     #  run: chmod +x mvnw && npm run ci:backend:test
        
      - name: test_crea_serv
        run: ./mvnw -ntp verify -DskipTests --batch-mode "-Pprod" "-Pe2e" "-Denforcer.skip=true"*
        
-     - name: test_E2E_prepare
-       run: npm run ci:e2e:prepare:docker
+     #- name: test_E2E_prepare
+     #  run: npm run ci:e2e:prepare:docker
        
-     - name: test_E2E_run
-       run: npm run ci:e2e:run
+     #- name: test_E2E_run
+     #  run: npm run ci:e2e:run
        
-     - name: test_E2E_end
-       run: npm run ci:e2e:teardown
+     #- name: test_E2E_end
+     #  run: npm run ci:e2e:teardown
+       
+     - name: deploiement_eroku
+       run: ./mvnw -ntp com.heroku.sdk:heroku-maven-plugin:2.0.5:deploy -DskipTests -Pprod -Dheroku.buildpacks=heroku/jvm -Dheroku.appName=test-richard-68320
        
        
        
